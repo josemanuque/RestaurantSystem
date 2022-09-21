@@ -36,3 +36,23 @@
     transform: rotate(360deg);
   }
 }
+
+
+.navbar .navbar-brand {
+  margin-left: 15px;
+}
+
+.btn-properties{
+  width: auto !important;
+  float: right !important;
+}
+
+.footer {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  background-color: #282c34;
+  color: white;
+  text-align: center;
+}

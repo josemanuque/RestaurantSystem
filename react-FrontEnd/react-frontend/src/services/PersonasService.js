@@ -7,6 +7,22 @@ class PersonasService {
     getPersonas() {
         return axios.get(PERSONA_API_BASE_URL);
     }
+
+    createPersona(persona) {
+        return axios.post(PERSONA_API_BASE_URL, persona);
+    }
+
+    getPersonaById(personaId) {
+        return axios.get(PERSONA_API_BASE_URL + '/' + personaId);
+    }
+
+    updatePersona(persona, personaId) {
+        return axios.put(PERSONA_API_BASE_URL + '/' + personaId, persona);
+    }
+
+    deletePersona(personaId) {
+        return axios.delete(PERSONA_API_BASE_URL + '/' + personaId);
+    }
 }
 
 export default new PersonasService()
