@@ -21,6 +21,11 @@ class CreatePersonasComponent extends Component {
 
     savePersonas = (e) => {
         e.preventDefault();
+        if (this.state.cedula.length != 9) {
+            alert("La cedula debe tener 9 digitos");
+            return;
+        }
+
         let persona = {cedula: this.state.cedula, nombre: this.state.nombre, apellido1: this.state.apellido1, apellido2: this.state.apellido2};
         console.log('persona => ' + JSON.stringify(persona));
 
