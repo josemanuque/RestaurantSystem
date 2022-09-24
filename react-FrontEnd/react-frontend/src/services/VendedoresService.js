@@ -13,6 +13,7 @@ class VendedoresService {
     }
 
     getVendedorById(vendedorId) {
+        console.log(vendedorId);
         return axios.get(VENDEDOR_API_BASE_URL + '/' + vendedorId);
     }
 

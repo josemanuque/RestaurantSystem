@@ -13,6 +13,7 @@ class PersonasService {
     }
 
     getPersonaById(personaId) {
+        console.log(personaId);
         return axios.get(PERSONA_API_BASE_URL + '/' + personaId);
     }
 

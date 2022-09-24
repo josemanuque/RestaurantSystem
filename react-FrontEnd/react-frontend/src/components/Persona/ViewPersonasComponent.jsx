@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import PersonasService from '../services/PersonasService';
-import { withRouter } from '../services/withRouter';
+import PersonasService from '../../services/PersonasService';
+import { withRouter } from '../../services/withRouter';
 
 class ViewPersonasComponent extends Component {
     constructor(props) {

@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import { withRouter } from '../services/withRouter';
-import PersonasService from '../services/PersonasService';
+import { withRouter } from '../../services/withRouter';
+import PersonasService from '../../services/PersonasService';
 
 class ListPersonasComponent extends Component {
     constructor(props) {
@@ -33,7 +33,9 @@ class ListPersonasComponent extends Component {
     deletePersona(cedula) {
         PersonasService.deletePersona(cedula).then(res => {
             this.setState({personas: this.state.personas.filter(persona => persona.cedula !== cedula)});
-        });
+        }).catch( function(error) {
+            window.alert("Persona no puede ser eliminada porque tiene una cuenta asociada");
+        });;
     }
 
     addPersonas = () => {
