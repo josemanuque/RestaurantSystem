@@ -1,0 +1,2 @@
+Git repo: https://github.com/josemanuque/RestaurantSystem.git
+Github public repo: https://github.com/josemanuque/RestaurantSystem
