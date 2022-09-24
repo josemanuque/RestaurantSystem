@@ -12,12 +12,13 @@ import java.util.Set;
 public class Producto implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "idproducto")
     private Long idProducto;
 
     @Column(name = "descripcion")
     private String descripcion;
 
-    @Column(name = "precio")
+    @Column(name = "precio", columnDefinition="NUMBER(15, 3)")
     private double precio;
 
     public Producto() {
@@ -25,7 +26,6 @@ public class Producto implements Serializable {
     }
 
     public Producto(Long idProducto, String descripcion, double precio) {
-        super();
         this.idProducto = idProducto;
         this.descripcion = descripcion;
         this.precio = precio;
@@ -38,6 +38,7 @@ public class Producto implements Serializable {
     public void setIdProducto(Long idProducto) {
         this.idProducto = idProducto;
     }
+
 
     public String getDescripcion() {
         return descripcion;
@@ -54,13 +55,4 @@ public class Producto implements Serializable {
     public void setPrecio(double precio) {
         this.precio = precio;
     }
-/*
-    public Set<Venta> getVentas() {
-        return ventas;
-    }
-
-    public void setVentas(Set<Venta> ventas) {
-        this.ventas = ventas;
-    }
-*/
 }

@@ -10,7 +10,7 @@ import java.io.Serializable;
 @Table(name = "personas", schema = "c##restaurant")
 public class Persona implements Serializable {
     @Id
-    @Column(name = "cedula")
+    @Column(name = "cedula", columnDefinition="CHAR(9)")
     private String cedula;
 
     @Column(name = "nombre")

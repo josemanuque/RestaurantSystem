@@ -39,11 +39,12 @@ CREATE TABLE C##RESTAURANT.producto (
 );
 
 
-CREATE TABLE Venta (
+CREATE TABLE C##RESTAURANT.Venta (
        idVenta     INT       GENERATED AS IDENTITY NOT NULL,
        fecha       TIMESTAMP       NOT NULL,
        vendedor    VARCHAR2(30)    NOT NULL, --usuario
        cliente     CHAR(9)         NOT NULL, --idCliente
+       total       NUMBER(15,3)    NOT NULL,
 
        CONSTRAINT Pk_venta_idVenta PRIMARY KEY (idVenta),
        CONSTRAINT Fk_venta_vendedor FOREIGN KEY (vendedor)

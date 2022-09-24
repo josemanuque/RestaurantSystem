@@ -7,13 +7,13 @@ import java.io.Serializable;
 @Table(name = "cliente", schema = "c##restaurant")
 public class Cliente implements Serializable {
     @Id
-    @Column(name = "cedula")
+    @Column(name = "cedula", columnDefinition="CHAR(9)")
     private String cedula;
 
     @OneToOne(cascade = CascadeType.MERGE)
     @JoinColumn(name = "cedula")
     private Persona persona;
-    @Column(name = "telefono")
+    @Column(name = "telefono", columnDefinition="CHAR(9)")
     private String telefono;
 
     @Column(name = "email")

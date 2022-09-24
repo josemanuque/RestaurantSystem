@@ -13,6 +13,7 @@ import java.util.Set;
 public class Venta implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "idventa")
     private Long idVenta;
 
     @Column(name = "fecha")
@@ -21,10 +22,10 @@ public class Venta implements Serializable {
     @Column(name = "vendedor")
     private String vendedor;
 
-    @Column(name = "cliente")
+    @Column(name = "cliente", columnDefinition="CHAR(9)")
     private String cliente;
 
-    @Column(name = "total")
+    @Column(name = "total", columnDefinition="NUMBER(15,3)")
     private float total;
 
 
@@ -33,12 +34,11 @@ public class Venta implements Serializable {
     }
 
     public Venta(Long idVenta, LocalDateTime fecha, String vendedor, String cliente, float total) {
-        super();
-        this.total = total;
         this.idVenta = idVenta;
         this.fecha = fecha;
         this.vendedor = vendedor;
         this.cliente = cliente;
+        this.total = total;
     }
 
     public Long getIdVenta() {
