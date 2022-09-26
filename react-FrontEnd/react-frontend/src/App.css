@@ -56,3 +56,9 @@
   color: white;
   text-align: center;
 }
+
+
+.main-wrapper {
+ position: relative;
+ min-height: 100vh;
+}

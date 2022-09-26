@@ -16,7 +16,7 @@ public class Venta implements Serializable {
     @Column(name = "idventa")
     private Long idVenta;
 
-    @Column(name = "fecha")
+    @Column(name = "fecha", columnDefinition="TIMESTAMP")
     private LocalDateTime fecha;
 
     @Column(name = "vendedor")

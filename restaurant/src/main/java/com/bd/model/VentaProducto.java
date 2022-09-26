@@ -6,28 +6,42 @@ import java.time.LocalDateTime;
 
 @Entity
 @Table(name = "ventaproducto", schema = "c##restaurant")
+@IdClass(VentaProductoID.class)
 public class VentaProducto implements Serializable {
-    @EmbeddedId
-    private VentaProductoID ventaProductoId;
 
+    @Id
+    @Column(name = "idproducto")
+    private Long idProducto;
 
-    @Column(name = "cantidad")
+    @Id
+    @Column(name = "idventa")
+    private Long idVenta;
+
     private int cantidad;
     public VentaProducto() {
 
     }
 
-    public VentaProducto(VentaProductoID ventaProductoId, int cantidad) {
-        this.ventaProductoId = ventaProductoId;
+    public VentaProducto(Long idProducto, Long idVenta, int cantidad) {
+        this.idProducto = idProducto;
+        this.idVenta = idVenta;
         this.cantidad = cantidad;
     }
 
-    public VentaProductoID getVentaProductoId() {
-        return ventaProductoId;
+    public Long getIdProducto() {
+        return idProducto;
     }
 
-    public void setVentaProductoId(VentaProductoID idProducto) {
-        this.ventaProductoId = ventaProductoId;
+    public void setIdProducto(Long idProducto) {
+        this.idProducto = idProducto;
+    }
+
+    public Long getIdVenta() {
+        return idVenta;
+    }
+
+    public void setIdVenta(Long idVenta) {
+        this.idVenta = idVenta;
     }
 
     public int getCantidad() {

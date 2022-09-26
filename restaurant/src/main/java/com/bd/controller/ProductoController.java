@@ -34,7 +34,7 @@ public class ProductoController {
     }
 
     // Gets person from ID
-    @GetMapping("/productos/{productoId}")
+    @GetMapping("/productos/{idProducto}")
     public ResponseEntity<Producto>  getProductoByID(@PathVariable Long idProducto){
         Producto producto = productoRepo.findById(idProducto)
                 .orElseThrow(() -> new ResourceNotFoundException("No existe Persona con productoId: "+ idProducto));
@@ -44,7 +44,7 @@ public class ProductoController {
 
     // Updated person
 
-    @PutMapping("/productos/{productoId}")
+    @PutMapping("/productos/{idProducto}")
     public ResponseEntity<Producto> updateProducto(@PathVariable Long idProducto, @RequestBody Producto productoDetails){
         Producto producto = productoRepo.findById(idProducto)
                 .orElseThrow(() -> new ResourceNotFoundException("No existe Cliente con cédula: "+ idProducto));
@@ -58,7 +58,7 @@ public class ProductoController {
     }
 
     // Delete person
-    @DeleteMapping("/producto/{productoId}")
+    @DeleteMapping("/productos/{idProducto}")
     public ResponseEntity<Map<String, Boolean>> deleteProducto(@PathVariable Long idProducto){
         Producto producto = productoRepo.findById(idProducto)
                 .orElseThrow(() -> new ResourceNotFoundException("No existe Cliente con cédula: "+ idProducto));

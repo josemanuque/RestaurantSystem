@@ -5,13 +5,13 @@ import javax.persistence.Embeddable;
 import java.io.Serializable;
 import java.util.Objects;
 
-@Embeddable
+//@Embeddable
 public class VentaProductoID implements Serializable {
 
-    @Column(name = "idproducto")
+    //@Column(name = "idproducto")
     private Long idProducto;
 
-    @Column(name = "idventa")
+    //@Column(name = "idventa")
     private Long idVenta;
 
 
@@ -43,13 +43,7 @@ public class VentaProductoID implements Serializable {
 
     @Override
     public int hashCode() {
-        final int prime = 31;
-        int result = 1;
-        result = prime * result
-                + ((idProducto == null) ? 0 : idProducto.hashCode());
-        result = prime * result
-                + ((idVenta == null) ? 0 : idVenta.hashCode());
-        return result;
+        return Objects.hash(idProducto, idVenta);
     }
 
     @Override

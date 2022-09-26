@@ -10,9 +10,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 @CrossOrigin(origins = {"http://localhost:3000", "http://192.168.1.200:3000", "http://201.237.205.229:3000", "http://quescarv.casacam.net:3000"})
 @RestController
@@ -32,23 +30,29 @@ public class VentaProductoController {
 
     // Creates Personas, saves to DB
     @PostMapping("/ventaProducto")
-    public VentaProducto createVenta(@RequestBody VentaProducto ventaProducto){
-        return ventaProductoRepo.save(ventaProducto);
+    public List<VentaProducto> createVenta(@RequestBody List<VentaProducto> ventaProducto){
+        List<VentaProducto> inserted = new ArrayList<>();
+        for (int i = 0; i < ventaProducto.size(); i++) {
+            VentaProductoID id = new VentaProductoID(ventaProducto.get(i).getIdVenta(), ventaProducto.get(i).getIdProducto());
+            inserted.add(ventaProductoRepo.save(ventaProducto.get(i)));
+            if (ventaProducto.get(i).getCantidad() == 0) {
+                ventaProductoRepo.delete(ventaProducto.get(i));
+            }
+        }
+        return inserted;
     }
 
     // Gets person from ID
-    @GetMapping("/ventaProducto/{idVenta}/{idProducto}")
-    public ResponseEntity<VentaProducto>  getVentaByID(@PathVariable Long idVenta, @PathVariable Long idProducto){
-        VentaProductoID id = new VentaProductoID(idVenta, idProducto);
-        VentaProducto ventaProducto = ventaProductoRepo.findById(id)
-                .orElseThrow(() -> new ResourceNotFoundException("No existe"));
+    @GetMapping("/ventaProducto/{idVenta}")
+    public List<VentaProducto>  getVentaByID(@PathVariable Long idVenta){
+        List<VentaProducto> ventaProducto = ventaProductoRepo.findByIdVenta(idVenta);
 
-        return ResponseEntity.ok(ventaProducto);
+        return ventaProducto;
     }
 
     // Updated person
 
-    @PutMapping("/ventas/{idVenta}/{idProducto}")
+    @PutMapping("/ventaProducto/{idVenta}/{idProducto}")
     public ResponseEntity<VentaProducto> updateVenta(@PathVariable Long idVenta, @PathVariable Long idProducto, @RequestBody VentaProducto ventaProductoDetails){
         VentaProductoID id = new VentaProductoID(idVenta, idProducto);
         VentaProducto ventaProducto = ventaProductoRepo.findById(id)
@@ -60,8 +64,9 @@ public class VentaProductoController {
         return ResponseEntity.ok(updatedVenta);
     }
 
+
     // Delete person
-    @DeleteMapping("/ventas/{idVenta}/{idProducto}")
+    @DeleteMapping("/ventaProducto/{idVenta}/{idProducto}")
     public ResponseEntity<Map<String, Boolean>> deletePersona(@PathVariable Long idVenta, @PathVariable Long idProducto){
         VentaProductoID id = new VentaProductoID(idVenta, idProducto);
         VentaProducto ventaProducto = ventaProductoRepo.findById(id)
