@@ -1,5 +1,5 @@
 # RestaurantSystem
-Web app of a Restaurant Management System. 
+Web app of a Restaurant. 
 
 Databases used: 
 - Oracle
