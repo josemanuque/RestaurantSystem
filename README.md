@@ -14,4 +14,5 @@ Technologies used:
 - SpringBoot
 - Hibernate
 - Oracle
-- MongoDb
+- Express
+- MongoDB
