@@ -7,7 +7,7 @@ Databases used:
 
 Uses MVC design pattern and REST APIs for frontend-backend communication
 
-Technologies used:
+Uses:
 - React.js
 - Node.js
 - Java
