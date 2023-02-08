@@ -11,7 +11,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-@CrossOrigin(origins = {"http://localhost:3000", "http://192.168.1.200:3000", "http://201.237.205.229:3000", "http://quescarv.casacam.net:3000"})
+@CrossOrigin(origins = {"http://localhost:3000", "http://192.168.1.200:3000", "http://quescarv.casacam.net:3000"})
 @RestController
 @RequestMapping("/api/v1/")
 public class ProductoController {
